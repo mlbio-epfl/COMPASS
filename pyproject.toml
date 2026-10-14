@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "compass-compat"
+version = "0.1.0"
+description = "COMPASS: predict model-pair compatibility before alignment or merging"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    { name = "Fabian Gröger" },
+    { name = "Petar Damjanović" },
+    { name = "Maria Brbić" },
+]
+dependencies = [
+    "torch>=2.6",
+    "timm>=1.0",
+    "transformers>=4.56",
+    "datasets>=2.18",
+    "numpy",
+    "pandas",
+    "pillow",
+    "tqdm",
+    "sentencepiece",
+    "protobuf",
+]
+
+[project.optional-dependencies]
+examples = ["matplotlib", "jupyter"]
+dev = ["pytest", "calibrated-similarity"]
+
+[project.urls]
+Homepage = "https://brbiclab.epfl.ch/projects/compass/"
+Repository = "https://github.com/mlbio-epfl/COMPASS"
+Paper = "https://arxiv.org/abs/2610.18638"
+
+[project.scripts]
+compass = "compass.cli:main"
+
+[tool.setuptools]
+packages = ["compass"]
